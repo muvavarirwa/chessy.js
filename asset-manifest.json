@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/muvavarirwa/chessy.js/static/css/main.95aba8f5.chunk.css",
+    "main.js": "/muvavarirwa/chessy.js/static/js/main.b93b7c56.chunk.js",
+    "main.js.map": "/muvavarirwa/chessy.js/static/js/main.b93b7c56.chunk.js.map",
+    "runtime-main.js": "/muvavarirwa/chessy.js/static/js/runtime-main.2c2a6a17.js",
+    "runtime-main.js.map": "/muvavarirwa/chessy.js/static/js/runtime-main.2c2a6a17.js.map",
+    "static/js/2.9ca4ae36.chunk.js": "/muvavarirwa/chessy.js/static/js/2.9ca4ae36.chunk.js",
+    "static/js/2.9ca4ae36.chunk.js.map": "/muvavarirwa/chessy.js/static/js/2.9ca4ae36.chunk.js.map",
+    "index.html": "/muvavarirwa/chessy.js/index.html",
+    "static/css/main.95aba8f5.chunk.css.map": "/muvavarirwa/chessy.js/static/css/main.95aba8f5.chunk.css.map",
+    "static/js/2.9ca4ae36.chunk.js.LICENSE.txt": "/muvavarirwa/chessy.js/static/js/2.9ca4ae36.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c2a6a17.js",
+    "static/js/2.9ca4ae36.chunk.js",
+    "static/css/main.95aba8f5.chunk.css",
+    "static/js/main.b93b7c56.chunk.js"
+  ]
+}
