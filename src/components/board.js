@@ -13,7 +13,7 @@ function Board() {
         <div className="topNav"></div>
       </div>
       <div className="middlePage">
-        {/* <div className="leftNav"></div> */}
+        <div className="leftNav"></div>
         <div className="board">
           {rows.map((row, idx) => (
             <Row key={idx} className={row.className} id={idx} />

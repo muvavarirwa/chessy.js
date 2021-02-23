@@ -7,12 +7,12 @@
     height: 500px;
     align-content: center;
     align-items: center;
-    background-color: ghostwhite;
+    border: darkslategrey;
 }
 
 .topPage {
-    height: 100px;
-    width: 600px;
+    height: 160px;
+    width: 900px;
     background-color: rgb(6, 6, 7);
 }
 
@@ -27,22 +27,19 @@
 }
 
 .leftNav {
-    width: 100 px;
+    width: 200px;
     background: gray;
-    width: 100px;
-    height: 450px;
 }
 
 .rightNav {
-    width: 100px;
-    height: 490px;
+    width: 210px;
     background: gray;
 }
 
 .middlePage {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
 }
 
 .row {
@@ -68,6 +65,7 @@
     height: 60px;
     width: 60px;
     color: black;
+    background-color: rgb(6, 6, 7);
 }
 
 .piece {
