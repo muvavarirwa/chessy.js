@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+.board {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    max-width: 490px;
+    height: 500px;
+    align-content: center;
+    align-items: center;
+}
+
+.topPage {
+    height: 100px;
+    width: 600px;
+    background-color: rgb(6, 6, 7);
+}
+
+.topNav {
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    color: ghostwhite;
+}
+
+.leftNav {
+    width: 100 px;
+    background: gray;
+    width: 100px;
+    height: 450px;
+}
+
+.rightNav {
+    width: 100px;
+    height: 490px;
+    background: gray;
+}
+
+.middlePage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.square-white {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60px;
+    width: 60px;
+    color: ghostwhite;
+}
+
+.square-black {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60px;
+    width: 60px;
+    color: black;
+}
+
+.piece {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+    color: black;
+}
