@@ -12,12 +12,6 @@ function moveReducer(state = initialState, action) {
 
 const store = createStore(moveReducer);
 
-console.log('--------------------------------------');
-console.log(store);
-console.log('++++++++++++++++++++++++++++++++++++++');
-console.log(store.getState());
-console.log('======================================');
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
