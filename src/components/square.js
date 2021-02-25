@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Piece from './piece';
+import { movePiece } from '../store/store';
 
 class Square extends React.Component {
   constructor(props) {
@@ -15,9 +16,14 @@ class Square extends React.Component {
   componentDidMount() {}
   handleSelectPiece(event) {
     console.log(event.target);
+    movePiece({});
   }
   render() {
     const { className, id } = this.props;
+
+    /*     console.log('================SQUARE==================');
+    console.log(this.props);
+    console.log('----------------------------------------'); */
 
     if (className) {
       return (
@@ -47,6 +53,12 @@ function mapStateToProps(state) {
   return {
     board: state.board,
     image_url: state.image_url,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    movePiece: () => dispatch(movePiece()),
   };
 }
 

@@ -1,12 +1,17 @@
 import React from 'react';
 import Row from './row';
+import { connect } from 'react-redux';
 
-function Board() {
+function Board(props) {
   let rows = new Array(8);
 
   for (let idx = 0; idx < rows.length; idx++) {
     rows[idx] = { className: 'row', id: idx };
   }
+
+  /*   console.log('===============BOARD===================');
+  console.log(props);
+  console.log('++++++++++++++++++++++++++++++++++++++++'); */
 
   return (
     <React.Fragment>
@@ -26,4 +31,11 @@ function Board() {
   );
 }
 
-export default Board;
+function mapStateToProps(state) {
+  return {
+    board: state.board,
+    image_url: state.image_url,
+  };
+}
+
+export default connect(mapStateToProps)(Board);
