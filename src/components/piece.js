@@ -2,19 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 function Piece(props) {
-  const { board, pieces, className, id } = props;
+  const { board, image_url, className, id } = props;
 
-  console.log('------------PIECE.js----------------');
-  //console.log(props);
-  //console.log(id);
-  console.log('+++++++++++++++++++++++++++++++++++++');
   const piece_name = board[id];
-  //console.log(pieces[piece_name].image_url);
+
   let image = '';
-  if (pieces[piece_name] !== undefined) {
-    image = pieces[piece_name].image_url;
+  try {
+    image = image_url[piece_name];
+  } finally {
+    //console.log('error');
   }
-  console.log(image);
 
   if (image !== '') {
     return <span className={className}>{image}</span>;
@@ -26,7 +23,7 @@ function Piece(props) {
 function mapStateToProps(state) {
   return {
     board: state.board,
-    pieces: state.pieces,
+    image_url: state.image_url,
   };
 }
 

@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import './App.css';
 
 function App(props) {
-  console.log('------------APP.js----------------');
-  console.log(props);
-  console.log('++++++++++++++++++++++++++++++++++++++');
   return (
     <div className="App">
       <Board />
@@ -13,11 +10,11 @@ function App(props) {
   );
 }
 
-function mapStateToProps(state) {
+/* function mapStateToProps(state) {
   return {
     board: state.board,
     pieces: state.pieces,
   };
-}
+} */
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);

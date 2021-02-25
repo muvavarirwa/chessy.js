@@ -3,15 +3,13 @@ import Row from './row';
 
 function Board() {
   let rows = new Array(8);
+
   for (let idx = 0; idx < rows.length; idx++) {
     rows[idx] = { className: 'row', id: idx };
   }
 
   return (
     <React.Fragment>
-      <div className="topPage">
-        <div className="topNav"></div>
-      </div>
       <div className="middlePage">
         <div className="leftNav"></div>
         <div className="board">

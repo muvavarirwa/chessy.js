@@ -28,12 +28,12 @@
 
 .leftNav {
     width: 200px;
-    background: gray;
+    background: khaki;
 }
 
 .rightNav {
     width: 210px;
-    background: gray;
+    background: khaki;
 }
 
 .middlePage {
@@ -64,8 +64,8 @@
     justify-content: space-evenly;
     height: 60px;
     width: 60px;
-    color: black;
-    background-color: rgb(6, 6, 7);
+    color: grey;
+    background-color: gray;
 }
 
 .piece {

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import initialState from './store/initialState';
+import Routes from './components/routes';
 
 function moveReducer(state = initialState, action) {
   return state;
@@ -12,9 +13,11 @@ function moveReducer(state = initialState, action) {
 
 const store = createStore(moveReducer);
 
+console.log(store.getState());
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   document.getElementById('root')
 );
