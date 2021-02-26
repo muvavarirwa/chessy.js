@@ -36,7 +36,6 @@ pieces.forEach((piece) => {
 });
 
 const keys = Object.keys(initialState.pieces[pieces[0]]);
-//console.log(keys);
 
 const initState = {};
 keys.forEach((key) => {
@@ -49,12 +48,9 @@ pieces.forEach((piece) => {
     keys.forEach((key) => {
         initState[key][piece] = initialState.pieces[piece][key];
     });
-    //console.log([initialState.pieces[piece]]);
 });
 
 initState['board'] = initialState['board'];
 initState['initBoard'] = initialState['board'];
-
-console.log(initState);
 
 export default initState;

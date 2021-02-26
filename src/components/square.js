@@ -26,7 +26,7 @@ class Square extends React.Component {
   }
   handleSelectPiece(from) {
     console.log(from);
-    movePiece({ 8: undefined, 32: 'w_P0' });
+    //movePiece({ 8: undefined, 32: 'w_P0' });
   }
   render() {
     const { className, id } = this.props;
@@ -41,7 +41,7 @@ class Square extends React.Component {
             onMouseDown={() => {
               this.moveObj[id] = undefined;
               this.moveObj[16] = this.props.board[id];
-              this.handleSelectPiece(this.moveObj);
+              /* this.handleSelectPiece(this.moveObj); */
             }}
           >
             <Piece id={id} className={'piece'} />
