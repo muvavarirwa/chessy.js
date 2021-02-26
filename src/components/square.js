@@ -8,22 +8,28 @@ class Square extends React.Component {
     super();
     this.state = {
       id: '',
-      piece_name: '',
+      piece_name: undefined,
       image: '',
     };
+    this.moveObj = {};
     this.handleSelectPiece = this.handleSelectPiece.bind(this);
   }
-  componentDidMount() {}
-  handleSelectPiece(event) {
-    console.log(event.target);
-    movePiece({});
+  componentDidMount() {
+    const id = this.props.id;
+    const piece_name = this.props.board[id];
+    const image = this.props.image_url[piece_name];
+    this.setState({
+      id: id,
+      piece_name: piece_name,
+      image: image,
+    });
+  }
+  handleSelectPiece(from) {
+    console.log(from);
+    movePiece({ 8: undefined, 32: 'w_P0' });
   }
   render() {
     const { className, id } = this.props;
-
-    /*     console.log('================SQUARE==================');
-    console.log(this.props);
-    console.log('----------------------------------------'); */
 
     if (className) {
       return (
@@ -32,7 +38,11 @@ class Square extends React.Component {
             className={className}
             id={`piece_${id}`}
             value={id}
-            onClick={(e) => this.handleSelectPiece(e)}
+            onMouseDown={() => {
+              this.moveObj[id] = undefined;
+              this.moveObj[16] = this.props.board[id];
+              this.handleSelectPiece(this.moveObj);
+            }}
           >
             <Piece id={id} className={'piece'} />
           </div>

@@ -77,3 +77,14 @@
     width: 40px;
     color: black;
 }
+
+.btn-submit {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: solid transparent;
+    background-color: blue;
+    color: white;
+}

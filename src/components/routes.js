@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import App from '../App';
-//import chessyDOM from './flex1.js';
+//import AppDOM from '../AppDOM';
 
 class Routes extends React.Component {
   componentDidMount() {}
@@ -28,7 +23,7 @@ class Routes extends React.Component {
           <main>
             <Route path="/" component={App} exact />
             <Route path="/chessyRedux" component={App} exact />
-            {/*   <Route path="/chessyDOM" component={chessyDOM} exact /> */}
+            {/*             <Route path="/chessyDOM" component={AppDOM} exact /> */}
           </main>
         </div>
       </Router>

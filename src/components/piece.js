@@ -14,7 +14,11 @@ function Piece(props) {
   }
 
   if (image !== '') {
-    return <span className={className}>{image}</span>;
+    return (
+      <div className={className} value={id}>
+        {image}
+      </div>
+    );
   } else {
     return <span className={className}></span>;
   }

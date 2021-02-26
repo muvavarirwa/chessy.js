@@ -5,24 +5,26 @@ import initialState from './initialState';
 
 const MOVE_PIECE = 'MOVE_PIECE';
 
-export const movePiece = (board) => {
-    console.log('============movePIECE========================');
-    return {
+export const movePiece = (move) => {
+    store.dispatch({
         type: MOVE_PIECE,
-        board,
-    };
+        move,
+    });
 };
 
 export function moveReducer(state = initialState, action) {
-    /*     console.log('================MOVE REDUCER==================');
-      console.log(state);
-      console.log('------------- STATE from within REDUCER--------'); */
+    console.log('================MOVE REDUCER==================');
     switch (action.type) {
         case MOVE_PIECE:
-            return {
+            let result = {
                 ...state,
-                action,
+                board: {
+                    ...state.board,
+                    ...action.move,
+                },
             };
+            console.log(result);
+            return result;
         default:
             return state;
     }

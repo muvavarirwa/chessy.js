@@ -53,7 +53,8 @@ pieces.forEach((piece) => {
 });
 
 initState['board'] = initialState['board'];
+initState['initBoard'] = initialState['board'];
 
-//console.log(initState);
+console.log(initState);
 
 export default initState;
