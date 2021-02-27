@@ -2,7 +2,6 @@ import React from 'react';
 import Row from './row';
 import { connect } from 'react-redux';
 import { movePiece } from '../store/store';
-import store from '../store/store';
 
 class Board extends React.Component {
   constructor(props) {
@@ -16,6 +15,9 @@ class Board extends React.Component {
     this.state = {
       turn: 1,
     };
+  }
+  componentDidMount() {
+    console.log('didMount!');
   }
   initRows() {
     for (let idx = 0; idx < this.rows.length; idx++) {
@@ -33,10 +35,12 @@ class Board extends React.Component {
         feasible_moves[piece] = [];
         moves[piece].forEach((move) => {
           let next_pos = move + curr_pos[piece];
+
           if (
             next_pos >= 0 &&
             next_pos <= 63 &&
-            board[next_pos] === undefined
+            (board[next_pos] === undefined ||
+              !this.sides[this.state.turn].includes(board[next_pos]))
           ) {
             feasible_moves[piece].push(next_pos);
           }
@@ -48,10 +52,12 @@ class Board extends React.Component {
   autoPlay() {
     if (this.state.turn === 1) {
       this.setState({ turn: 2 });
-    } else if (this.turn === 2) {
+    } else if (this.state.turn === 2) {
       this.setState({ turn: 1 });
     }
+
     const side = this.sides[this.state.turn];
+
     this.getFeasibleMoves(side);
     const randPiece = side[Math.floor(Math.random() * side.length)];
     const feasible_moves = this.props.feasible_moves[randPiece];
@@ -61,10 +67,10 @@ class Board extends React.Component {
     let moveObj = {};
     moveObj[curr_pos] = undefined;
     moveObj[randMove] = randPiece;
-    console.log(moveObj);
     movePiece(moveObj);
   }
   render() {
+    console.log('rendered!');
     return (
       <React.Fragment>
         <div className="middlePage">
@@ -89,7 +95,9 @@ class Board extends React.Component {
           </div>
         </div>
         <div className="bottomPage">
-          <div className="bottomNav"></div>
+          <div className="bottomNav">
+            <div>https://github.com/muvavarirwa/chessy.js</div>
+          </div>
         </div>
       </React.Fragment>
     );
