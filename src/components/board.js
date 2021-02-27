@@ -17,7 +17,7 @@ class Board extends React.Component {
     };
   }
   componentDidMount() {
-    console.log('didMount!');
+    //console.log('didMount!');
   }
   initRows() {
     for (let idx = 0; idx < this.rows.length; idx++) {
@@ -25,52 +25,68 @@ class Board extends React.Component {
     }
   }
   getFeasibleMoves(pieces) {
-    setInterval(() => {
-      const moves = this.props.moves;
-      const board = this.props.board;
-      const curr_pos = this.props.curr_pos;
-      const feasible_moves = this.props.feasible_moves;
+    const moves = this.props.moves;
+    const board = this.props.board;
+    const curr_pos = this.props.curr_pos;
+    const feasible_moves = this.props.feasible_moves;
 
-      pieces.forEach((piece) => {
-        feasible_moves[piece] = [];
-        moves[piece].forEach((move) => {
-          let next_pos = move + curr_pos[piece];
+    pieces.forEach((piece) => {
+      feasible_moves[piece] = [];
+      moves[piece].forEach((move) => {
+        let next_pos = move + curr_pos[piece];
 
-          if (
-            next_pos >= 0 &&
-            next_pos <= 63 &&
-            (board[next_pos] === undefined ||
-              !this.sides[this.state.turn].includes(board[next_pos]))
-          ) {
-            feasible_moves[piece].push(next_pos);
-          }
-        });
-        feasible_moves[piece] = [...new Set(feasible_moves[piece])];
+        if (
+          next_pos >= 0 &&
+          next_pos <= 63 &&
+          (board[next_pos] === undefined ||
+            !this.sides[this.state.turn].includes(board[next_pos]))
+        ) {
+          feasible_moves[piece].push(next_pos);
+        }
       });
-    }, 3000);
+      feasible_moves[piece] = [...new Set(feasible_moves[piece])];
+    });
   }
   autoPlay() {
-    if (this.state.turn === 1) {
-      this.setState({ turn: 2 });
-    } else if (this.state.turn === 2) {
-      this.setState({ turn: 1 });
-    }
+    setInterval(() => {
+      try {
+        if (this.state.turn === 1) {
+          this.setState({ turn: 2 });
+        } else if (this.state.turn === 2) {
+          this.setState({ turn: 1 });
+        }
+        /*     this.sides[this.state.turn].forEach((piece) => {
+      if (this.props.feasible_moves[piece].length === 0) {
+        delete this.props.feasible_moves[piece];
+      }
+    }); */
+        const side = this.sides[this.state.turn].filter(
+          (piece) => this.props.feasible_moves[piece].length > 0
+        );
+        console.log(side);
+        this.getFeasibleMoves(side);
 
-    const side = this.sides[this.state.turn];
-
-    this.getFeasibleMoves(side);
-    const randPiece = side[Math.floor(Math.random() * side.length)];
-    const feasible_moves = this.props.feasible_moves[randPiece];
-    const randMove =
-      feasible_moves[Math.floor(Math.random() * feasible_moves.length)];
-    const curr_pos = this.props.curr_pos[randPiece];
-    let moveObj = {};
-    moveObj[curr_pos] = undefined;
-    moveObj[randMove] = randPiece;
-    movePiece(moveObj);
+        const randPiece = side[Math.floor(Math.random() * side.length)];
+        const feasible_moves = this.props.feasible_moves[randPiece];
+        console.log(feasible_moves);
+        const randMove =
+          feasible_moves[Math.floor(Math.random() * feasible_moves.length)];
+        const curr_pos = this.props.curr_pos[randPiece];
+        let moveObj = {};
+        moveObj[curr_pos] = undefined;
+        console.log('REMOVE: ', moveObj);
+        movePiece(moveObj);
+        moveObj = {};
+        moveObj[randMove] = randPiece;
+        console.log('INSERT: ', moveObj);
+        movePiece(moveObj);
+      } catch (e) {
+        alert('Game completed....unceremoniously');
+        return;
+      }
+    }, 1000);
   }
   render() {
-    console.log('rendered!');
     return (
       <React.Fragment>
         <div className="middlePage">
@@ -111,12 +127,6 @@ function mapStateToProps(state) {
     feasible_moves: state.feasible_moves,
     moves: state.moves,
     curr_pos: state.curr_pos,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    movePiece: () => dispatch(movePiece()),
   };
 }
 

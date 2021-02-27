@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import './App.css';
 
 function App(props) {
-  /*   console.log('===========APP.js===============');
-  console.log(props);
-  console.log('++++++++++++++++++++++++++++++++'); */
-
   return (
     <div className="App">
       <Board />

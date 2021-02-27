@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Piece from './piece';
-import { movePiece } from '../store/store';
 
 class Square extends React.Component {
   constructor(props) {
@@ -63,12 +62,6 @@ function mapStateToProps(state) {
   return {
     board: state.board,
     image_url: state.image_url,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    movePiece: () => dispatch(movePiece()),
   };
 }
 
